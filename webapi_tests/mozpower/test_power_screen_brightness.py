@@ -17,6 +17,7 @@ class TestPowerManagement(TestCase):
 
     def test_brightness_decrease(self):
         #initialize the screen brightness
+        self.wait_for_object("window.navigator.mozPower")
         self.marionette.execute_script("window.navigator.mozPower.screenBrightness = 1.0;")
         self.instruct("About to decrease the screen "
                       "brightness; please watch the screen and click OK")
@@ -25,6 +26,7 @@ class TestPowerManagement(TestCase):
 
     def test_brightness_increase(self):
         #initialize the screen brightness
+        self.wait_for_object("window.navigator.mozPower")
         self.marionette.execute_script("window.navigator.mozPower.screenBrightness = 0.1;")
         self.instruct("About to increase the screen "
                       "brightness; please watch the screen and click OK")
